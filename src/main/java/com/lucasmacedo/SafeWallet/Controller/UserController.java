@@ -27,7 +27,6 @@ public class UserController {
         response.put("message", "Usuário criado com sucesso.");
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
         var token = userService.loginUser(loginRequest);

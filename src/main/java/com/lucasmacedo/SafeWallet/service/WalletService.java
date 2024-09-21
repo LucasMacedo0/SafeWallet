@@ -15,11 +15,11 @@ public class WalletService {
     private WalletRepository repository;
 
     @Autowired
-    private UserRepository userRepositoryy;
+    private UserRepository userRepository;
 
     public void create(DigitalWallet digitalWallet) {
         digitalWallet.setUsuario(Optional.ofNullable(digitalWallet.getUsuario())
-                .map(user -> userRepositoryy.findByNome(digitalWallet.getUsuario().getNome()))
+                .map(user -> userRepository.findByNome(digitalWallet.getUsuario().getNome()))
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado")));
 
         digitalWallet.setDataCriacao(LocalDateTime.now());

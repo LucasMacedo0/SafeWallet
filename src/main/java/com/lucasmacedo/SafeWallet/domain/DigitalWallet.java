@@ -24,6 +24,9 @@ public class DigitalWallet {
     @NotNull(message = "Nome da Carteira é obrigatorio")
     private String nomeCarteira;
 
+    @NotNull(message = "Numero da Carteira é obrigatorio")
+    private String numeroCarteira;
+
     @NotNull(message = "Saldo é obrigatório")
     private BigDecimal saldo;
 
