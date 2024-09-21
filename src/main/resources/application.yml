@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: SafeWallet
+  datasource:
+    url: jdbc:mysql://localhost:3306/wallet_db?useSSL=false&serverTimezone=UTC
+    username: huer985
+    password: sat38012
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Usado para auto-gerar e atualizar o esquema do banco. Outros valores: validate, create, create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    format-sql: true
+jwt:
+  secret: "51354134134"
+
+server:
+  port: 8080
