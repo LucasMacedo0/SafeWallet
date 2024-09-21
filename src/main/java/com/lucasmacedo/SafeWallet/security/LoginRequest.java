@@ -1,4 +1,4 @@
-package com.lucasmacedo.SafeWallet.domain;
+package com.lucasmacedo.SafeWallet.security;
 
 import lombok.Getter;
 

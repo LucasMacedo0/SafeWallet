@@ -1,8 +1,7 @@
 package com.lucasmacedo.SafeWallet.Controller;
 
-import com.lucasmacedo.SafeWallet.domain.User;
-import com.lucasmacedo.SafeWallet.security.LoginRequest;
-import com.lucasmacedo.SafeWallet.service.UserService;
+import com.lucasmacedo.SafeWallet.domain.DigitalWallet;
+import com.lucasmacedo.SafeWallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,23 +14,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/usuarios")
-public class UserController {
+@RequestMapping("/wallet")
+public class WalletController {
     @Autowired
-    private UserService userService;
-
+    private WalletService walletService;
     @PostMapping("/create")
-    public ResponseEntity<Map<String, String>> createUser(@RequestBody User user) {
-        userService.createUser(user);
+    public ResponseEntity<Map<String, String>> createWallet(@RequestBody DigitalWallet digitalWallet){
+        walletService.create(digitalWallet);
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Usuário criado com sucesso.");
+        response.put("message", "Carteira criada com sucesso.");
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        var token = userService.loginUser(loginRequest);
-        return ResponseEntity.ok(token);
     }
 
 }
